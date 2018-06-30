@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Fota</string>
+	<string name="start">开始</string>
+	<string name="pause">暂停</string>
+	<string name="check">检测版本</string>
+<string name="toast_network_unavailable">Network unavailable</string>
+<string name="toast_storage_not_enough">not enough storage space</string>
+<string name="toast_battery_low">The current power is too low and the installed refresh power needs to be greater than 30%</string>
+<string name="toast_server_incorrect">server incorrect</string>
+<string name="toast_fingerprint_error">current system is not correct</string>
+</resources>

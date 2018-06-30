@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="wtwd.com.fota"
+          android:sharedUserId="android.uid.system">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.DELETE_CACHE_FILES"/>
+    <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="android.permission.RECOVERY"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application
+    	android:name="MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+	>
+        <activity android:name=".MainActivity">
+        </activity>
+        <service android:name=".DownloadService" />
+        <service
+            android:name=".service.Service1"
+            android:enabled="true"
+            android:process=":service1">
+        </service>
+        <service
+            android:name=".service.Service2"
+            android:enabled="true"
+            android:process=":service2">
+        </service>
+        <receiver android:name=".WtwdReceive">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+				<action android:name="com.wtwd.action.checkupdate" />
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+				<action android:name="com.wtwd.action.download.success" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
